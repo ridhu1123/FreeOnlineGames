@@ -19,19 +19,29 @@ class _HomescreenState extends State<Homescreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: 
-      Colors.black,
+      Colors.transparent,
       body: Stack(
         children: [
           screens[_selectedIndex],
         ],
       ),
-      bottomNavigationBar:BottomNavigationBar(items: [
-        BottomNavigationBarItem(icon: Icon(Icons.home),label: ""),
-        BottomNavigationBarItem(icon: Icon(Icons.explore),label: "")
-      ],
-      currentIndex: _selectedIndex,
-      selectedItemColor: Colors.blue,
-      onTap: onitemindex,
+      bottomNavigationBar:ClipRRect(
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30)),
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          backgroundColor:  Colors.black,
+          unselectedItemColor: Colors.white,
+          elevation: 0,
+          selectedIconTheme: IconThemeData(size: 30,)
+          
+          ,items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home),label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.explore),label: "")
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blue,
+        onTap: onitemindex,
+        ),
       ) ,
     );
   }
