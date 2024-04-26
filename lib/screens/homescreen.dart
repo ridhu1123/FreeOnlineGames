@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:playgames/screens/bottomnavigationscren/home.dart';
 import 'package:playgames/screens/bottomnavigationscren/secondscreen.dart';
+import 'dart:ui' as ui;
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
 
@@ -18,10 +19,10 @@ class _HomescreenState extends State<Homescreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: 
-      Colors.transparent,
+      // backgroundColor: Colors.blue.withOpacity(0.5),
       body: Stack(
         children: [
+         
           screens[_selectedIndex],
         ],
       ),

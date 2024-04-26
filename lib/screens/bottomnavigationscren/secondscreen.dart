@@ -3,7 +3,6 @@ import 'package:flutter_custom_tabs/flutter_custom_tabs.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:playgames/models/responce.dart';
-import 'package:playgames/screens/cctscreen.dart';
 import 'package:playgames/services/apiclass.dart';
 
 class Secondscreen extends StatefulWidget {
@@ -29,7 +28,8 @@ var size, height, width;
     height = size.height;
     width = size.width;
     return Scaffold(
-      body:ListView.separated(
+      body:items.isNotEmpty?
+      ListView.separated(
                         separatorBuilder: (context, index) =>
                             Divider(thickness: 0.5, indent: width / 3.1),
                         scrollDirection: Axis.vertical,
@@ -123,7 +123,9 @@ var size, height, width;
                               ),
                             ),
                           );
-   }) );
+   }):Center(child: 
+   CircularProgressIndicator(),)
+    );
   }
 
    Future getCategories()async{
